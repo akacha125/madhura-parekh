@@ -1,6 +1,6 @@
 export const portfolioData = {
   artist: {
-    name: "Jane Smith",
+    name: "Madhura Parekh",
     title: "Mixed Media Artist",
     heroTagline: "Creating unique experiences through diverse artistic mediums",
     about: `As a mixed media artist, I explore the intersection of various artistic disciplines,
@@ -8,12 +8,12 @@ export const portfolioData = {
     complexity of modern life through the fusion of different materials and methods.`,
   },
   contact: {
-    email: "artist@example.com",
-    phone: "+1 (234) 567-890",
+    email: "artbymadhura@gmail.com",
+    phone: "(+91) 98981 13511",
     social: {
-      instagram: "https://instagram.com/artist",
-      twitter: "https://twitter.com/artist",
-      linkedin: "https://linkedin.com/in/artist",
+      instagram: "https://instagram.com/artbymadhu",
+      twitter: "https://twitter.com/parekhakhil",
+      linkedin: "https://linkedin.com/in/parekhakhil",
       behance: "https://behance.net/artist",
     },
   },
@@ -22,7 +22,7 @@ export const portfolioData = {
       id: 1,
       title: "Artwork 1",
       category: "Mixed Media",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+      image: "https://github.com/parekhakhil/madhura-portfolio/blob/main/src/data/IMG-20230516-WA0004.jpg",
       description: "A mixed media piece exploring the intersection of traditional and digital art forms. Created using acrylics, digital manipulation, and found objects.",
       dimensions: "24\" x 36\"",
       year: "2023",
