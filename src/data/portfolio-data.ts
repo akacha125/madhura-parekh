@@ -23,7 +23,7 @@ export const portfolioData = {
       title: "Vibrant Fusion",
       category: "Mixed Media",
       image: "/src/data/IMG-20230516-WA0004.jpg",
-      description: "A mixed media piece exploring the intersection of traditional and digital art forms. Created using acrylics, digital manipulation, and found objects.",
+      description: "An artwork made through mixed media techniques, various textures and materials ",
       dimensions: "24\" x 36\"",
       year: "2023",
       materials: "Acrylic, digital print, found objects",
