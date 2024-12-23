@@ -26,7 +26,7 @@ export const portfolioData = {
       description: "An artwork made through mixed media techniques, various textures and materials ",
       dimensions: "24\" x 36\"",
       year: "2023",
-      materials: "Acrylic, digital print, found objects",
+      materials: "Acrylic, wall putty, digital print",
     },
     {
       id: 2,
