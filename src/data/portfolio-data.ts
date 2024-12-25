@@ -11,7 +11,7 @@ export const portfolioData = {
     social: {
       instagram: "https://instagram.com/art__by__madhura",
       twitter: "https://twitter.com/parekhakhil",
-      linkedin: "https://linkedin.com/in/madhuraparekh",
+      linkedin: "https://linkedin.com/in/madhura-parekh",
       behance: "https://behance.net/artist",
     },
   },
