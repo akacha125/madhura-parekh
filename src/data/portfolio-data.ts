@@ -20,13 +20,13 @@ export const portfolioData = {
   works: [
     {
       id: 1,
-      title: "Water Effect",
+      title: "Mixed Media Art",
       category: "Mixed Media",
-      image: "/src/data/PXL_20231019_181958322.MV.jpg",
-      description: "This artwork is specially base on water effect in leaves with give aligen look and natural look in leaves",
+      image: "/src/data/",
+      description: "This artwork is specially base on mixed media art which represent Surat city which are famous in Surat",
       dimensions: "24\" x 36\"",
       year: "2023",
-      materials: "Acrylic, photoghraphic",
+      materials: "Acrylic, photoghraphic, thread, mdf, nial",
     },
     {
       id: 2,
