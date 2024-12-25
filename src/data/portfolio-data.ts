@@ -22,7 +22,7 @@ export const portfolioData = {
       id: 1,
       title: "Mixed Media Art",
       category: "Mixed Media",
-      image: "/src/data/",
+      image: "/src/data/src/data/IMG_20230710_214936.jpg",
       description: "This artwork is specially base on mixed media art which represent Surat city which are famous in Surat",
       dimensions: "24\" x 36\"",
       year: "2023",
