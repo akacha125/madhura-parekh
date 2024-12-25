@@ -72,7 +72,7 @@ export const portfolioData = {
       id: 6,
       title: "The Lilly",
       category: "Mixed Media",
-      image: "/src/data/",
+      image: "/src/data/WhatsApp Image 2023-08-27.jpg",
       description: " A new generation of waterproof wallpapers means patten can bloom in the most unexpected of places.",
       dimensions: "40\" x 60\"",
       year: "2022",
