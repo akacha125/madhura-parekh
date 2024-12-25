@@ -1,9 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
-const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -11,9 +8,8 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
-
 const handler = async (req: Request): Promise<Response> => {
+  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -21,6 +17,10 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { record } = await req.json();
     console.log("Received contact submission:", record);
+
+    if (!RESEND_API_KEY) {
+      throw new Error("RESEND_API_KEY is not configured");
+    }
 
     // Send email notification
     const res = await fetch("https://api.resend.com/emails", {
@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         from: "Madhura Portfolio <onboarding@resend.dev>",
-        to: "artbymadhura@gmail.com",
+        to: ["artbymadhura@gmail.com"],
         subject: "New Contact Form Submission",
         html: `
           <h2>New Contact Form Submission</h2>
@@ -46,10 +46,15 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     if (!res.ok) {
-      throw new Error(`Failed to send email: ${await res.text()}`);
+      const errorData = await res.text();
+      console.error("Resend API error:", errorData);
+      throw new Error(`Failed to send email: ${errorData}`);
     }
 
-    return new Response(JSON.stringify({ success: true }), {
+    const data = await res.json();
+    console.log("Email sent successfully:", data);
+
+    return new Response(JSON.stringify({ success: true, data }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
