@@ -3,10 +3,11 @@ export const portfolioData = {
     name: "Madhura Parekh",
     title: "Mixed Media Artist",
     heroTagline: "Creating unique experiences through diverse artistic mediums",
-    about: `As a mixed media artist, I explore the intersection of various artistic disciplines,
-    combining traditional techniques with contemporary approaches. My work reflects the
-    complexity of modern life through the fusion of different materials and methods.`,
-  },
+  //   about: `As a mixed media artist, I explore the intersection of various artistic disciplines,
+  //   combining traditional techniques with contemporary approaches. My work reflects the
+  //   complexity of modern life through the fusion of different materials and methods.`,
+  // },
+    about: `As a mixed media artist, I delve into the intersection of diverse artistic mediums, blending traditional techniques with innovative, contemporary practices. My work captures the complexities of modern life, using a dynamic fusion of materials and methods to create layered, thought-provoking compositions.`
   contact: {
     email: "artbymadhura@gmail.com",
     phone: "(+91) 98981 13511",
