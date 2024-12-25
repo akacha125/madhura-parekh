@@ -55,7 +55,7 @@ export const portfolioData = {
       image: "/src/data/PXL_20240513_172737956.jpg",
       description: "A series exploring the intersection of traditional art and modern line art.",
       dimensions: "24\" x 24\"",
-      year: "2023",
+      year: "2024",
       materials: "Photogharph, acrylic, line burshes",
     },
     {
