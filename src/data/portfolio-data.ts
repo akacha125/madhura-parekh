@@ -1,6 +1,6 @@
 export const portfolioData = {
   artist: {
-    name: "Jane Smith",
+    name: "Madhura Parekh",
     title: "Mixed Media Artist",
     heroTagline: "Creating unique experiences through diverse artistic mediums",
     about: `As a mixed media artist, I explore the intersection of various artistic disciplines,
@@ -8,12 +8,12 @@ export const portfolioData = {
     complexity of modern life through the fusion of different materials and methods.`,
   },
   contact: {
-    email: "artist@example.com",
-    phone: "+1 (234) 567-890",
+    email: "artbymadhura@gmail.com",
+    phone: "(+91) 98981 13511",
     social: {
-      instagram: "https://instagram.com/artist",
-      twitter: "https://twitter.com/artist",
-      linkedin: "https://linkedin.com/in/artist",
+      instagram: "https://instagram.com/artbymadhura",
+      twitter: "https://twitter.com/parekhakhil",
+      linkedin: "https://linkedin.com/in/madhuraparekh",
       behance: "https://behance.net/artist",
     },
   },
@@ -22,7 +22,7 @@ export const portfolioData = {
       id: 1,
       title: "Living Space Harmony",
       category: "Mixed Media",
-      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+      image: "https://",
       description: "An exploration of domestic spaces through mixed media, combining photography and digital manipulation to create a sense of warmth and comfort.",
       dimensions: "24\" x 36\"",
       year: "2023",
