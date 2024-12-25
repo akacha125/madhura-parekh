@@ -50,13 +50,13 @@ export const portfolioData = {
     },
     {
       id: 4,
-      title: "Digital Dreams",
-      category: "Digital Art",
+      title: "Mixed Media",
+      category: "Pichawai Art",
       image: "/src/data/PXL_20240513_172737956.jpg",
-      description: "A series exploring the intersection of traditional art and digital manipulation.",
+      description: "A series exploring the intersection of traditional art and modern line art.",
       dimensions: "24\" x 24\"",
       year: "2023",
-      materials: "Digital manipulation, photography",
+      materials: "Photogharph, acrylic, line burshes",
     },
     {
       id: 5,
