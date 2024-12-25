@@ -11,7 +11,7 @@ export const portfolioData = {
     email: "artbymadhura@gmail.com",
     phone: "(+91) 98981 13511",
     social: {
-      instagram: "https://instagram.com/(@art_by_madhura)",
+      instagram: "https://www.instagram.com/(@art_by_madhura)",
       twitter: "https://twitter.com/parekhakhil",
       linkedin: "https://linkedin.com/in/madhuraparekh",
       behance: "https://behance.net/artist",
