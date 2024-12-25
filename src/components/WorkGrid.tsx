@@ -1,10 +1,41 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
-import { portfolioData } from "@/data/portfolio-data";
+
+const works = [
+  {
+    id: 1,
+    title: "Artwork 1",
+    category: "Mixed Media",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+    description: "A mixed media piece exploring the intersection of traditional and digital art forms. Created using acrylics, digital manipulation, and found objects.",
+    dimensions: "24\" x 36\"",
+    year: "2023",
+    materials: "Acrylic, digital print, found objects",
+  },
+  {
+    id: 2,
+    title: "Artwork 2",
+    category: "Installation",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+    description: "An immersive installation piece that invites viewers to explore the relationship between space and perception.",
+    dimensions: "10' x 15' x 8'",
+    year: "2023",
+    materials: "Mixed media, LED lights, mirrors",
+  },
+  {
+    id: 3,
+    title: "Artwork 3",
+    category: "Sculpture",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+    description: "A sculptural exploration of form and negative space, crafted from reclaimed materials.",
+    dimensions: "48\" x 24\" x 24\"",
+    year: "2022",
+    materials: "Steel, wood, found objects",
+  },
+];
 
 const WorkGrid = () => {
-  const [selectedWork, setSelectedWork] = useState<typeof portfolioData.works[0] | null>(null);
-  const { works } = portfolioData;
+  const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
 
   return (
     <>
