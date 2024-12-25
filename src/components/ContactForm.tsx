@@ -36,14 +36,20 @@ const ContactForm = () => {
         .select()
         .single();
 
-      if (insertError) throw insertError;
+      if (insertError) {
+        console.error("Error inserting contact:", insertError);
+        throw insertError;
+      }
 
       // Trigger email notification
       const { error: notifyError } = await supabase.functions.invoke("notify-contact", {
         body: { record: contact },
       });
 
-      if (notifyError) throw notifyError;
+      if (notifyError) {
+        console.error("Error sending notification:", notifyError);
+        throw notifyError;
+      }
 
       toast.success("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
