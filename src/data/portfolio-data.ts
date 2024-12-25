@@ -35,7 +35,7 @@ export const portfolioData = {
       image: "/src/data/PXL_20231102_195447543.MV.jpg",
       description: "A artwork show the process show how diamond form to jewelly in Surat Diamond Bourse.",
       dimensions: "20\" x 30\"",
-      year: "2023",
+      year: "2024",
       materials: "Digital photography, Acrylic",
     },
     {
@@ -75,7 +75,7 @@ export const portfolioData = {
       image: "/src/data/",
       description: " A new generation of waterproof wallpapers means patten can bloom in the most unexpected of places.",
       dimensions: "40\" x 60\"",
-      year: "2024",
+      year: "2022",
       materials: "Photography, digital art, acrylic, water effect",
     }
   ],
