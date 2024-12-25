@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -7,11 +8,51 @@ const ContactForm = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      // Get IP and location data
+      const ipResponse = await fetch("https://api.ipify.org?format=json");
+      const { ip } = await ipResponse.json();
+      
+      const geoResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+      const geoData = await geoResponse.json();
+
+      // Save contact submission
+      const { data: contact, error: insertError } = await supabase
+        .from("contacts")
+        .insert([
+          {
+            ...formData,
+            ip_address: ip,
+            country: geoData.country_name,
+            city: geoData.city,
+          },
+        ])
+        .select()
+        .single();
+
+      if (insertError) throw insertError;
+
+      // Trigger email notification
+      const { error: notifyError } = await supabase.functions.invoke("notify-contact", {
+        body: { record: contact },
+      });
+
+      if (notifyError) throw notifyError;
+
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -27,6 +68,7 @@ const ContactForm = () => {
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 outline-none"
           required
+          disabled={isSubmitting}
         />
       </div>
       <div>
@@ -40,6 +82,7 @@ const ContactForm = () => {
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 outline-none"
           required
+          disabled={isSubmitting}
         />
       </div>
       <div>
@@ -52,13 +95,15 @@ const ContactForm = () => {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 outline-none h-32"
           required
+          disabled={isSubmitting}
         />
       </div>
       <button
         type="submit"
-        className="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition-colors"
+        className="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={isSubmitting}
       >
-        Send Message
+        {isSubmitting ? "Sending..." : "Send Message"}
       </button>
     </form>
   );

@@ -1,15 +1,48 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState } from "react";
-import { portfolioData } from "@/data/portfolio-data";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+
+const fetchWorks = async () => {
+  const { data, error } = await supabase
+    .from("works")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) throw error;
+  return data;
+};
 
 const WorkGrid = () => {
-  const [selectedWork, setSelectedWork] = useState<typeof portfolioData.works[0] | null>(null);
-  const { works } = portfolioData;
+  const [selectedWork, setSelectedWork] = useState<any>(null);
+  const { data: works, isLoading, error } = useQuery({
+    queryKey: ["works"],
+    queryFn: fetchWorks,
+  });
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="aspect-square bg-gray-200 animate-pulse rounded-lg" />
+        ))}
+      </div>
+    );
+  }
+
+  if (error) {
+    console.error("Error loading works:", error);
+    return (
+      <div className="text-center text-red-500">
+        Failed to load artwork. Please try again later.
+      </div>
+    );
+  }
 
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {works.map((work) => (
+        {works?.map((work) => (
           <div
             key={work.id}
             className="group relative overflow-hidden aspect-square animate-fade-in cursor-pointer"
